@@ -196,155 +196,153 @@
         .cong {
             animation: pulse 1.2s infinite;
             margin: 26px auto 20px auto;
-
             @include mq(Pro11X) {
                 margin: 88px auto 44px auto;
             }
-
             @include mq(MacBook) {
-            margin: 44px auto 33px auto;
+                margin: 44px auto 33px auto;
+            }
         }
-    }
-    .get-euros {
-        margin-top: 20px;
-        margin-bottom: 24px;
-        @include mq(Pro11X) {
-            margin-top: 36px;
-            margin-bottom: 82px;
-        }
-        @include mq(MacBook) {
-            margin-top: 28px;
-            margin-bottom: 35px;
-        }
-    }
-    .footer-box {
-        margin: 0 auto;
-        border-radius: 30px 30px 0 0;
-        background-color: $main-color-white;
-        width: 320px;
-        padding-top: 12px;
-        padding-bottom: 26px;
-        @include mq(Pro11X) {
-            width: 375px;
-            padding-top: 42px;
-            padding-bottom: 46px;
-        }
-        @include mq(MacBook) {
-            width: 320px;
-            padding-top: 15px;
-            border-radius: 20px 20px 0 0;
-        }
-    }
-    .you-are-selected {
-        width: 311px;
-        margin: 0 auto;
-        @include textLine(16px, 19px, center, $text-color-plum);
-    }
-    .footer-box__items {
-        width: 300px;
-        margin: 0 auto;
-        .footer-box__items--item {
-            position: relative;
-            padding-left: 39px;
-            border: 1px solid $border-color-grey;
-            border-radius: 10px;
-            margin-bottom: 9px;
+        .get-euros {
+            margin-top: 20px;
+            margin-bottom: 24px;
             @include mq(Pro11X) {
-                margin-bottom: 22px;
+                margin-top: 36px;
+                margin-bottom: 82px;
             }
             @include mq(MacBook) {
-                padding-left: 42px;
+                margin-top: 28px;
+                margin-bottom: 35px;
             }
-            &::before {
+        }
+        .footer-box {
+            margin: 0 auto;
+            border-radius: 30px 30px 0 0;
+            background-color: $main-color-white;
+            width: 320px;
+            padding-top: 12px;
+            padding-bottom: 26px;
+            @include mq(Pro11X) {
+                width: 375px;
+                padding-top: 42px;
+                padding-bottom: 46px;
+            }
+            @include mq(MacBook) {
+                width: 320px;
+                padding-top: 15px;
+                border-radius: 20px 20px 0 0;
+            }
+        }
+        .you-are-selected {
+            width: 311px;
+            margin: 0 auto;
+            @include textLine(16px, 19px, center, $text-color-plum);
+        }
+        .footer-box__items {
+            width: 300px;
+            margin: 0 auto;
+            .footer-box__items--item {
+                position: relative;
+                padding-left: 39px;
+                border: 1px solid $border-color-grey;
+                border-radius: 10px;
+                margin-bottom: 9px;
+                @include mq(Pro11X) {
+                    margin-bottom: 22px;
+                }
+                @include mq(MacBook) {
+                    padding-left: 42px;
+                }
+                &::before {
+                    position: absolute;
+                    content: ' ';
+                    top: 6px;
+                    left: 3px;
+                    width: 29px;
+                    height: 29px;
+                    @include mq(MacBook) {
+                        left: 6px;
+                    }
+                }
+                h3, p {
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+                h3 {
+                    padding-top: 10px;
+                    font-weight: bold;
+                }
+                p {
+                    padding-bottom: 12px;
+                }
+            }
+            .first {
+                &::before {
+                    background: url("./assets/img/icon_attantion.svg");
+                }
+            }
+            .second {
+                p {
+                    padding-top: 10px;
+                    @include mq(MacBook) {
+                        padding-top: 8px;
+                    }
+                }
+                &::before {
+                    background: url("./assets/img/icon_ money.svg");
+                }
+            }
+        }
+        .button {
+            position: relative;
+            display: block;
+            width: 276px;
+            height: 48px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 18px;
+            box-shadow: 0 2px 0 0 $button-color-shadow;
+            background: $button-color-green;
+            color: $main-color-white;
+            margin: 23px auto 0;
+            @include mq(Pro11X) {
+                margin: 43px auto 0;
+            }
+            @include mq(MacBook) {
+                margin: 66px auto 4px;
+            }
+            &::after {
                 position: absolute;
                 content: ' ';
-                top: 6px;
-                left: 3px;
-                width: 29px;
-                height: 29px;
-                @include mq(MacBook) {
-                    left: 6px;
-                }
+                width: 24px;
+                height: 16px;
+                top: 36%;
+                right: 0;
+                transform: translate(-50%, 0);
+                background: url("./assets/img/icon_ arrow.svg");
             }
-            h3, p {
-                font-size: 14px;
-                line-height: 16px;
+        }
+        .date-start {
+            background-color: $main-color-white;
+            width: 320px;
+            margin: 7px auto;
+            @include mq(Pro11X) {
+                width: 375px;
+                margin: 4px auto;
+            }
+            @include mq(MacBook) {
+                width: 320px;
+                margin-top: 7px;
             }
             h3 {
-                padding-top: 10px;
+                padding: 3px 0;
+                @include textLine(12px, 14px, center, $text-color-blue);
                 font-weight: bold;
-            }
-            p {
-                padding-bottom: 12px;
-            }
-        }
-        .first {
-            &::before {
-                background: url("./assets/img/icon_attantion.svg");
-            }
-        }
-        .second {
-            p {
-                padding-top: 10px;
-                @include mq(MacBook) {
-                    padding-top: 8px;
+                span {
+                    color: $text-color-green;
                 }
             }
-            &::before {
-                background: url("./assets/img/icon_ money.svg");
-            }
         }
-    }
-    .button {
-        position: relative;
-        display: block;
-        width: 276px;
-        height: 48px;
-        border-radius: 6px;
-        font-weight: 500;
-        font-size: 18px;
-        box-shadow: 0 2px 0 0 $button-color-shadow;
-        background: $button-color-green;
-        color: $main-color-white;
-        margin: 23px auto 0;
-        @include mq(Pro11X) {
-            margin: 43px auto 0;
-        }
-        @include mq(MacBook) {
-            margin: 66px auto 4px;
-        }
-        &::after {
-            position: absolute;
-            content: ' ';
-            width: 24px;
-            height: 16px;
-            top: 36%;
-            right: 0;
-            transform: translate(-50%, 0);
-            background: url("./assets/img/icon_ arrow.svg");
-        }
-    }
-    .date-start {
-        background-color: $main-color-white;
-        width: 320px;
-        margin: 7px auto;
-        @include mq(Pro11X) {
-            width: 375px;
-            margin: 4px auto;
-        }
-        @include mq(MacBook) {
-            width: 320px;
-            margin-top: 7px;
-        }
-        h3 {
-            padding: 3px 0;
-            @include textLine(12px, 14px, center, $text-color-blue);
-            font-weight: bold;
-            span {
-                color: $text-color-green;
-            }
-        }
-    }
     }
     .second-content {
         hr {
@@ -503,7 +501,8 @@
                     top: -3px;
                     left: -33px;
                     content: ' ';
-                    background: url("./assets/img/icon_call.svg") no-repeat center, linear-gradient(345.42deg, #2F9E31 -28.42%, #1A821C 92.44%, #01421F 165%);
+                    background: url("./assets/img/icon_call.svg") no-repeat center,
+                    linear-gradient(345.42deg, #2F9E31 -28.42%, #1A821C 92.44%, #01421F 165%);
                     border: 11px solid #278c29;
                     border-radius: 50% 50%;
                     animation: vibrate 1s infinite;
