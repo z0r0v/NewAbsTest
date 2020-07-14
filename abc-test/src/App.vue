@@ -190,9 +190,13 @@
     p, h2, h3 {
         margin: 0;
     }
+
+
+
     .first-content {
         .cong {
             margin-bottom: 44px;
+            animation: pulse 1.2s infinite;
             @include mq($from: desktop) {
                 margin-top: 44px;
                 margin-bottom: 33px;
@@ -374,6 +378,7 @@
         }
     }
     .third-page-content {
+
         .cong {
             color: $button-color-green;
             margin: 72px auto 34px auto;
@@ -383,6 +388,7 @@
                 margin-bottom: 17px;
             }
         }
+
         .get-euros {
             color: $main-color-black;
             margin: 36px auto 36px auto;
@@ -399,6 +405,8 @@
             @include mq($from: desktop) {
                 margin-bottom: 32px;
             }
+
+            animation: pulse 1.2s infinite;
         }
         &__cal-text {
             width: 279px;
@@ -435,6 +443,9 @@
             display: flex;
             justify-content: center;
             margin-bottom: 52px;
+            animation: pulse 2s infinite;
+
+
             button {
                 position: relative;
                 display: block;
@@ -464,6 +475,7 @@
                     background: url("./assets/img/icon_call.svg") no-repeat center, linear-gradient(345.42deg, #2F9E31 -28.42%, #1A821C 92.44%, #01421F 165%);
                     border: 11px solid #278c29;
                     border-radius: 50% 50%;
+                    animation: vibrate 1s infinite;
                 }
             }
         }
