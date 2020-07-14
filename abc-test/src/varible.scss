@@ -1,0 +1,43 @@
+@import "~sass-mq";
+
+$mq-breakpoints: (
+  mobile: 375px,
+  desktop: 1152px,
+)!default;
+
+
+//colors
+$main-color-black: #000000;
+$main-color-red: #B81B1E;
+$main-color-white: #FFFFFF;
+$text-color-plum: #9BACF5;
+$text-color-green: #54AA4F;
+$text-color-blue: #203078;
+$border-color-grey: #C4C4C4;
+$border-color-lite-brown: #F8D259;
+$button-color-green: #2F9E31;
+$button-color-shadow: #308432;
+$bg-color-master: #203078;
+$bg-color-grey: #E5E5E5;
+$bg-color-hr-grey: #CECECE;
+$bg-color-button-grey: #EAEAEA;
+$bg-color-lite-brown: #FFFDF2;
+$bg-gradient-blue: linear-gradient(180deg, #0D9BEA 0%, #0568D4 100%);
+$bg-gradient-grey: linear-gradient(180deg, #0D9BEA 0%, #E2E2E2 0.01%, #BDBDBD 100%);
+
+$bg-gradient-green: linear-gradient(345.42deg, #2F9E31 -28.42%, #1A821C 92.44%, #01421F 165%);
+//fonts
+$app-font: 'Roboto';
+
+@mixin textLine($fz, $lh, $ta, $color) {
+  font-size: $fz;
+  line-height: $lh;
+  text-align: $ta;
+  color: $color;
+}
+
+%flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
