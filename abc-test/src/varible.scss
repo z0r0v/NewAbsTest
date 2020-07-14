@@ -5,6 +5,8 @@ $mq-breakpoints: (
   desktop: 1152px,
 )!default;
 
+@include mq-add-breakpoint(mobileSe, 320px);
+
 
 //colors
 $main-color-black: #000000;

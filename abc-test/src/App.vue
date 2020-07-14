@@ -213,6 +213,9 @@
             padding-bottom: 46px;
             border-radius: 30px 30px 0 0;
             background-color: $main-color-white;
+            @include mq(mobileSe) {
+                width: 320px;
+            }
             @include mq($from: desktop) {
                 width: 320px;
                 padding-top: 15px;
@@ -306,6 +309,9 @@
             width: 375px;
             margin: 4px auto;
             background-color: $main-color-white;
+            @include mq(mobileSe) {
+                width: 320px;
+            }
             @include mq($from: desktop) {
                 width: 320px;
                 margin-top: 7px;

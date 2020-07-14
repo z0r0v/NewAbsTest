@@ -38,9 +38,15 @@
     background-color: $bg-color-master;
     transform: translate(-13px, 0px);
     box-shadow: 24px 0 0 0 $bg-color-master;
+
+      @include mq(mobileSe) {
+          transform: translate(0px, 0px);
+      }
+
     @include mq($from: desktop) {
       transform: translate(-2px, 0px);
     }
+
 
     &__img {
       width: 43px;
