@@ -74,6 +74,7 @@
     import GetEurosComponent from './components/GetEurosComponent.vue'
     import HeadComponent from './components/HeadComponent.vue'
     import CongratsComponent from './components/CongratsComponent.vue'
+
     export default {
         data() {
             return {
@@ -98,7 +99,7 @@
                 paseTime: '03:00:00',
                 startDay: new Date(),
                 screen: 1,
-                downText:'Doar pentru adulți. Acesta este un serviciu de divertisment care trebuie acceptat și interpretat ca atare. Accesând serviciul declarați că sunteți de acord cu acești termeni și condiții și că aveți peste 18 ani și aveți acordul titularului cartelei. Cost serviciu: 1.7euro + tva/minut în Orange, Vodafone, Telekom fix și mobil. Program non-stop. Apăsând pe butonul de pe pagina serviciului veți fi redirecționat către căsuța de apelare cu numărul cu suprataxă predefinit. Furnizor: ABCMobile OÜ; Reg № 14710834; Adresa: Estonia, Tallinn, Strada St. Petersburg 71-318, 11415. Support@abcmobile.com. Info serviciu voce: 0318260010, luni-vineri, 9:00-18:00.\n' +
+                downText: 'Doar pentru adulți. Acesta este un serviciu de divertisment care trebuie acceptat și interpretat ca atare. Accesând serviciul declarați că sunteți de acord cu acești termeni și condiții și că aveți peste 18 ani și aveți acordul titularului cartelei. Cost serviciu: 1.7euro + tva/minut în Orange, Vodafone, Telekom fix și mobil. Program non-stop. Apăsând pe butonul de pe pagina serviciului veți fi redirecționat către căsuța de apelare cu numărul cu suprataxă predefinit. Furnizor: ABCMobile OÜ; Reg № 14710834; Adresa: Estonia, Tallinn, Strada St. Petersburg 71-318, 11415. Support@abcmobile.com. Info serviciu voce: 0318260010, luni-vineri, 9:00-18:00.\n' +
                     '          Affiliate: mobstra.com',
             }
         },
@@ -114,11 +115,14 @@
                 const day = date.getDate();
                 const month = date.getMonth();
                 const year = date.getFullYear();
-                const endDay = this.calcDate(limitDay).getDay();
+
+                const endDay = this.calcDate(limitDay).getDate();
                 const endMonth = this.calcDate(limitDay).getMonth();
                 const endYear = this.calcDate(limitDay).getFullYear();
                 const start = `${this.checkedDate(day)}.${this.checkedDate(month)}.${year}`;
                 const end = `${this.checkedDate(endDay)}.${this.checkedDate(endMonth)}.${endYear}`;
+
+
                 return {start, end};
             },
         },
@@ -171,13 +175,9 @@
 <style lang="scss">
     @import 'varible.scss';
     body {
-        height: 812px;
         margin: 0;
         background-color: $bg-color-master;
         font-family: $app-font;
-        @include mq($from: desktop) {
-            height: 700px;
-        }
     }
     button {
         padding: 0;
@@ -190,145 +190,161 @@
     p, h2, h3 {
         margin: 0;
     }
-
-
-
     .first-content {
+        width: 100%;
+        display: block;
         .cong {
-            margin-bottom: 44px;
             animation: pulse 1.2s infinite;
-            @include mq($from: desktop) {
-                margin-top: 44px;
-                margin-bottom: 33px;
+            margin: 26px auto 20px auto;
+
+            @include mq(Pro11X) {
+                margin: 88px auto 44px auto;
             }
+
+            @include mq(MacBook) {
+            margin: 44px auto 33px auto;
         }
-        .get-euros {
+    }
+    .get-euros {
+        margin-top: 20px;
+        margin-bottom: 24px;
+        @include mq(Pro11X) {
             margin-top: 36px;
             margin-bottom: 82px;
-            @include mq($from: desktop) {
-                margin-top: 28px;
-                margin-bottom: 35px;
-            }
         }
-        .footer-box {
+        @include mq(MacBook) {
+            margin-top: 28px;
+            margin-bottom: 35px;
+        }
+    }
+    .footer-box {
+        margin: 0 auto;
+        border-radius: 30px 30px 0 0;
+        background-color: $main-color-white;
+        width: 320px;
+        padding-top: 12px;
+        padding-bottom: 26px;
+        @include mq(Pro11X) {
             width: 375px;
-            margin: 0 auto;
             padding-top: 42px;
             padding-bottom: 46px;
-            border-radius: 30px 30px 0 0;
-            background-color: $main-color-white;
-            @include mq(mobileSe) {
-                width: 320px;
-            }
-            @include mq($from: desktop) {
-                width: 320px;
-                padding-top: 15px;
-                border-radius: 20px 20px 0 0;
-            }
         }
-        .you-are-selected {
-            width: 311px;
-            margin: 0 auto;
-            @include textLine(16px, 19px, center, $text-color-plum);
+        @include mq(MacBook) {
+            width: 320px;
+            padding-top: 15px;
+            border-radius: 20px 20px 0 0;
         }
-        .footer-box__items {
-            width: 300px;
-            margin: 0 auto;
-            .footer-box__items--item {
-                position: relative;
-                margin-bottom: 22px;
-                padding-left: 39px;
-                border: 1px solid $border-color-grey;
-                border-radius: 10px;
-                @include mq($from: desktop) {
-                    padding-left: 42px;
-                }
-                &::before {
-                    position: absolute;
-                    content: ' ';
-                    top: 6px;
-                    left: 3px;
-                    width: 29px;
-                    height: 29px;
-                    @include mq($from: desktop) {
-                        left: 6px;
-                    }
-                }
-                h3, p {
-                    font-size: 14px;
-                    line-height: 16px;
-                }
-                h3 {
-                    padding-top: 10px;
-                    font-weight: bold;
-                }
-                p {
-                    padding-bottom: 12px;
-                }
-            }
-            .first {
-                &::before {
-                    background: url("./assets/img/icon_attantion.svg");
-                }
-            }
-            .second {
-                p {
-                    padding-top: 10px;
-                    @include mq($from: desktop) {
-                        padding-top: 8px;
-                    }
-                }
-                &::before {
-                    background: url("./assets/img/icon_ money.svg");
-                }
-            }
-        }
-        .button {
+    }
+    .you-are-selected {
+        width: 311px;
+        margin: 0 auto;
+        @include textLine(16px, 19px, center, $text-color-plum);
+    }
+    .footer-box__items {
+        width: 300px;
+        margin: 0 auto;
+        .footer-box__items--item {
             position: relative;
-            display: block;
-            width: 276px;
-            height: 48px;
-            margin: 43px auto 0;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 18px;
-            box-shadow: 0 2px 0 0 $button-color-shadow;
-            background: $button-color-green;
-            color: $main-color-white;
-            @include mq($from: desktop) {
-                margin: 66px auto 4px;
+            padding-left: 39px;
+            border: 1px solid $border-color-grey;
+            border-radius: 10px;
+            margin-bottom: 9px;
+            @include mq(Pro11X) {
+                margin-bottom: 22px;
             }
-            &::after {
+            @include mq(MacBook) {
+                padding-left: 42px;
+            }
+            &::before {
                 position: absolute;
                 content: ' ';
-                width: 24px;
-                height: 16px;
-                top: 36%;
-                right: 0;
-                transform: translate(-50%, 0);
-                background: url("./assets/img/icon_ arrow.svg");
-            }
-        }
-        .date-start {
-            width: 375px;
-            margin: 4px auto;
-            background-color: $main-color-white;
-            @include mq(mobileSe) {
-                width: 320px;
-            }
-            @include mq($from: desktop) {
-                width: 320px;
-                margin-top: 7px;
-            }
-            h3 {
-                padding: 3px 0;
-                @include textLine(12px, 14px, center, $text-color-blue);
-                font-weight: bold;
-                span {
-                    color: $text-color-green;
+                top: 6px;
+                left: 3px;
+                width: 29px;
+                height: 29px;
+                @include mq(MacBook) {
+                    left: 6px;
                 }
             }
+            h3, p {
+                font-size: 14px;
+                line-height: 16px;
+            }
+            h3 {
+                padding-top: 10px;
+                font-weight: bold;
+            }
+            p {
+                padding-bottom: 12px;
+            }
         }
+        .first {
+            &::before {
+                background: url("./assets/img/icon_attantion.svg");
+            }
+        }
+        .second {
+            p {
+                padding-top: 10px;
+                @include mq(MacBook) {
+                    padding-top: 8px;
+                }
+            }
+            &::before {
+                background: url("./assets/img/icon_ money.svg");
+            }
+        }
+    }
+    .button {
+        position: relative;
+        display: block;
+        width: 276px;
+        height: 48px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 18px;
+        box-shadow: 0 2px 0 0 $button-color-shadow;
+        background: $button-color-green;
+        color: $main-color-white;
+        margin: 23px auto 0;
+        @include mq(Pro11X) {
+            margin: 43px auto 0;
+        }
+        @include mq(MacBook) {
+            margin: 66px auto 4px;
+        }
+        &::after {
+            position: absolute;
+            content: ' ';
+            width: 24px;
+            height: 16px;
+            top: 36%;
+            right: 0;
+            transform: translate(-50%, 0);
+            background: url("./assets/img/icon_ arrow.svg");
+        }
+    }
+    .date-start {
+        background-color: $main-color-white;
+        width: 320px;
+        margin: 7px auto;
+        @include mq(Pro11X) {
+            width: 375px;
+            margin: 4px auto;
+        }
+        @include mq(MacBook) {
+            width: 320px;
+            margin-top: 7px;
+        }
+        h3 {
+            padding: 3px 0;
+            @include textLine(12px, 14px, center, $text-color-blue);
+            font-weight: bold;
+            span {
+                color: $text-color-green;
+            }
+        }
+    }
     }
     .second-content {
         hr {
@@ -340,15 +356,21 @@
         }
         h2 {
             width: 279px;
-            margin: 0 auto 61px auto;
             @include textLine(18px, 21px, center, $main-color-black);
             font-weight: normal;
+            margin: 0 auto 47px auto;
+            @include mq(Pro11X) {
+                margin: 0 auto 61px auto;
+            }
         }
         .circle-box {
             width: 270px;
-            margin: 51px auto 71px auto;
             display: flex;
             justify-content: space-between;
+            margin: 33px auto 51px auto;
+            @include mq(Pro11X) {
+                margin: 51px auto 71px auto;
+            }
             .circle-box__circle {
                 @extend %flex-centered;
                 width: 22.22px;
@@ -371,30 +393,36 @@
                 width: 259px;
                 height: 48px;
                 font-weight: 500;
-                margin-bottom: 22px;
                 border-radius: 6px;
                 background-color: $bg-color-button-grey;
+                margin-bottom: 15px;
+                @include mq(Pro11X) {
+                    margin-bottom: 22px;
+                }
             }
         }
     }
     .third-page-content {
-
         .cong {
             color: $button-color-green;
-            margin: 72px auto 34px auto;
             font-size: 25px;
-            @include mq($from: desktop) {
+            margin: 18px auto 8px auto;
+            @include mq(Pro11X) {
+                margin: 72px auto 34px auto;
+            }
+            @include mq(MacBook) {
                 margin-top: 53px;
                 margin-bottom: 17px;
             }
         }
-
         .get-euros {
             color: $main-color-black;
-            margin: 36px auto 36px auto;
-            @include mq($from: desktop) {
-                margin-top: 25px;
-                margin-bottom: 27px;
+            margin: 18px auto 12px auto;
+            @include mq(Pro11X) {
+                margin: 36px auto 36px auto;
+            }
+            @include mq(MacBook) {
+                margin: 25px auto 27px auto;
             }
         }
         &__number-text {
@@ -402,10 +430,13 @@
             margin: 0 auto 38px auto;
             font-weight: bold;
             @include textLine(14px, 16px, center, $button-color-green);
-            @include mq($from: desktop) {
+            margin-bottom: 13px;
+            @include mq(Pro11X) {
+                margin-bottom: 38px;
+            }
+            @include mq(MacBook) {
                 margin-bottom: 32px;
             }
-
             animation: pulse 1.2s infinite;
         }
         &__cal-text {
@@ -420,13 +451,15 @@
         }
         &__qyt-lim-box {
             width: 300px;
-            margin: 43px auto 50px auto;
             background-color: $bg-color-lite-brown;
             border: 1px solid $border-color-lite-brown;
             border-radius: 10px;
-            @include mq($from: desktop) {
-                margin-top: 26px;
-                margin-bottom: 44px;
+            margin: 18px auto 16px auto;
+            @include mq(Pro11X) {
+                margin: 43px auto 50px auto;
+            }
+            @include mq(MacBook) {
+                margin: 26px auto 44px auto;
             }
             &--h3 {
                 width: 230px;
@@ -444,8 +477,6 @@
             justify-content: center;
             margin-bottom: 52px;
             animation: pulse 2s infinite;
-
-
             button {
                 position: relative;
                 display: block;
@@ -479,8 +510,6 @@
                 }
             }
         }
-
-
         .coment-text {
             width: 294px;
             height: calc(7px * 3);
@@ -495,7 +524,5 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
         }
-
-
     }
 </style>
